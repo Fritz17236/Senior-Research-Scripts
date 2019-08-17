@@ -1,0 +1,25 @@
+The "phase oscillator hilbert" function does the following:
+
+1. FFT to find fundamental frequency -> period
+    Measure period in multiples of the time step
+
+2. Identify where the signal first crosses zero with positive slope.
+    Call this "trigger". Discard data beforehand.
+
+3. Find left max (within 1/2 period of trigger) and left min
+    (between 1/2 period and full period after trigger).
+
+4. Find right max and right min.
+
+5. Normalize downward portion of real data, and compute imaginary as
+    sqrt(1 - x**2)
+
+6. Smooth imaginary near x = +-1
+
+7. Normalize upward portion of real data, compute imaginary.
+
+8. Smooth imaginary near x = +- 1
+
+9. Multiply imaginary by -1
+
+10. Cycle triggers, go to #4.

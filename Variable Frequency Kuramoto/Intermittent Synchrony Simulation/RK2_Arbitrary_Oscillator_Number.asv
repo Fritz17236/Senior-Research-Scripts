@@ -1,0 +1,27 @@
+%RK2 Kurmaoto Simulation
+clear
+clc
+%simulation parameters
+N = 100;  %Number of oscillators
+K = .2;     %Global Coupling Strength
+b = 5;     %Frequency Strength Paramter
+%initialization
+omega_o = normrnd(16,.1,N,1);    %frequency for each oscillator
+init_thetas = normrnd(pi,5,N,1);  %initial phases
+
+
+f = @theta_dot;
+
+    [t,xa] = ode15s(@(t,thetas) f(thetas,omega_o,K,b,t),[0:.01:200],init_thetas);
+
+
+figure 
+plot(t(10000:20000),sin(xa(10000:20000,:)))
+figure
+plot(theta_dot(xa(1000:10000,1),omega_o(1),K,b,t)*.01)
+figure 
+plot(t,coherence(xa'))
+
+
+
+

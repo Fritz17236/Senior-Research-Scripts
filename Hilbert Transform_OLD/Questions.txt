@@ -1,0 +1,3 @@
+How is data collected?  (Voltage Trace --> NI DAQ --> Computer??)
+What format is it stored in?  (Binary? Floating Point?)
+What data is being collected?  (Are we collecting phase traces of each oscillator? Or are we collecting simply V(t)?) 

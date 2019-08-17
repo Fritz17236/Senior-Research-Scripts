@@ -1,0 +1,9 @@
+%Script for analyzing Wien-Bridge Oscillator Data
+
+clear;
+clc
+close all
+
+
+%First import the data   
+load('data.mat');
